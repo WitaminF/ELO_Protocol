@@ -1,0 +1,22 @@
+{
+  "Indexation" : {
+    "AutoName" : {
+      "field1" : "TYPE_DOC",
+      "field2" : "DESIGN_SUPPL",
+      "fields" : [
+        "DEPARTEMENT",
+        "TYPE_DOC",
+        "DESIGN_SUPPL",
+        "FOURNISSEUR",
+        "CLIENT",
+        "INFO_COMPL"
+      ]
+    },
+    "Split" : {
+      "shouldWriteLogs": false,
+      "fields" : [
+        ["CLASSEMENT", "TYPE_DOC", "DESIGN_SUPPL"]
+      ]
+    }
+  }
+}
