@@ -1,5 +1,61 @@
 {
   "Indexation" : {
+    "SmartMask": {
+      "editableFields" : [
+        "FOURNISSEUR",
+        "CLIENT",
+        "ID_REF",
+        "COLLABORATEUR",
+        "MONTANT",
+        "TYPE_CONTRAT",
+        "NO_COMPTE",
+        "LIBELLE",
+        "PROCESSUS",
+        "NOTIFICATION"
+      ],
+      "visibleFields": [],
+      "commonFields": [
+        "PROCESSUS",
+        "NOTIFICATION"
+      ],
+      "commonPath" : [
+        "CLASSEMENT",
+        "TYPE_DOC",
+        "DESIGN_SUPPL"],
+      "csDefaultFields": [
+        "FOURNISSEUR",
+        "CLIENT",
+        "PROCESSUS",
+        "NOTIFICATION"
+      ],
+      "csContractFields" : [
+        "FOURNISSEUR",
+        "CLIENT",
+        "PROCESSUS",
+        "NOTIFICATION",
+        "MONTANT",
+        "TYPE_CONTRAT"
+      ],
+      "csInvoiceFields" : [
+        "FOURNISSEUR",
+        "CLIENT",
+        "PROCESSUS",
+        "NOTIFICATION",
+        "MONTANT",
+        "NO_COMPTE",
+        "LIBELLE"
+      ],
+      "customerPath": [
+        "CLIENT",
+        "TYPE_DOC",
+        "DESIGN_SUPPL"
+      ],
+      "supplierPath": [
+        "FOURNISSEUR",
+        "TYPE_DOC",
+        "DESIGN_SUPPL"
+      ]
+    },
     "AutoName" : {
       "field1" : "TYPE_DOC",
       "field2" : "DESIGN_SUPPL",
@@ -17,6 +73,33 @@
       "fields" : [
         ["CLASSEMENT", "TYPE_DOC", "DESIGN_SUPPL"]
       ]
+    },
+    "BasicReminder": {
+      "field": "NOTIFICATION",
+      "showDialog": true,
+      "splitter": "¶",
+      "groupPrefix": "grp_",
+      "userExclusion": [
+        "ELO service"
+      ],
+      "notifications": ["Pour information"]
+    },
+    "BasicFiling": {
+      "format": "{PDC_DEPOT}",
+      "folderMask": 1
+    },
+    "BasicReferences": {
+      "shouldWriteLogs": true,
+      "folderMask": 1,
+      "refs":
+      [{
+        "field": "PDC_REF",
+        "referenceSeparator": "¶",
+        "pathSeparator" : ">"
+      }]
+    },
+    "StartWorkflow": {
+      "field" : "PROCESSUS"
     }
   }
 }

@@ -12,6 +12,13 @@
 
 //@include lib_proto.pack.jc.func.Split
 //@include lib_proto.pack.jc.func.AutoName
+//@include lib_proto.pack.jc.func.BasicFiling
+//@include lib_proto.pack.jc.func.BasicReferences
+//@include lib_proto.pack.jc.func.BasicReminder
+//@include lib_proto.pack.jc.func.StartWorkflow
+
+//@include lib_proto.pack.jc.utils.GetUsers
+//@include lib_proto.pack.jc.utils.PathFormat
 
 
 
