@@ -4,8 +4,6 @@
 //@include lib_sol.common.SordUtils.js
 //@include lib_sol.common.ix.FunctionBase.js
 
-
-
 sol.define("SmartMask", {
     extend: "proto.pack.jc.PackFunction",
 
@@ -299,7 +297,6 @@ sol.define("SmartMask", {
 
         }
 
-        //D�finit le chemin de d�p�t pour le champ correspondant
 
     }
 })

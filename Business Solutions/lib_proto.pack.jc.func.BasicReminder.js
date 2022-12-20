@@ -78,12 +78,15 @@ sol.define("BasicReminder", {
 		
 		
         //Importation des 6 paramètres selon valeurs fournies dans fichier de configuration
-        this.fieldName = config.field;
-        this.split = config.split;
-        this.showDialog = config.showDialog;
-        this.groupPrefix = config.groupPrefix;
-        this.userExclusion = config.userExclusion;
-        this.notifications = config.notifications;
+        this.fieldName = config.field
+
+        this.showDialog = config.showDialog
+        this.groupPrefix = config.groupPrefix
+        this.userExclusion = config.userExclusion
+        this.notifications = config.notifications
+        this.nomVariable = config.nomVariable
+        this.splitter = config.splitter || "/"
+
 		
 		// Read debug config
 		this.debug = shouldWriteLogsGlobal // Take global value
@@ -136,7 +139,7 @@ sol.define("BasicReminder", {
 		
 		// Check if value exists
         if (fieldText != "") { 
-            var parts = String(fieldText).split(this.split) // Split the value on the parts using "split" from the config
+            var parts = String(fieldText).split(this.splitter) // Split the value on the parts using "split" from the config
             var title = "Notif. " + indexDialogAdapter.getName() + ": " + parts.shift() // Generating the notification's title
             
 			// If targets more 0 create and send the notification
@@ -273,7 +276,7 @@ sol.define("BasicReminder", {
                         parts.push(group.getText())
                 })
 
-                return parts.join('¶')
+                return parts.join(this.splitter)
             }
         }
     },

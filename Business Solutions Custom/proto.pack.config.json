@@ -93,7 +93,7 @@
       "field": "NOTIFICATION",
       "showDialog": true,
       "splitter": "¶",
-      "groupPrefix": "grp_",
+      "groupPrefix": "GRP_",
       "userExclusion": [
         "ELO service"
       ],
