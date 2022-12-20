@@ -67,6 +67,12 @@ sol.define("SmartMask", {
 
     process(indexDialog) {
 
+        let flFournisseur = getValue("FOURNISSEUR")
+        setValue("FOURNISSEUR_FL", flFournisseur.charAt(0))
+
+        let flClient = getValue("CLIENT")
+        setValue("CLIENT_FL", flClient.charAt(0))
+
         let pathReceiver = "PDC_DEPOT"
         let refReceiver = "PDC_REF"
 

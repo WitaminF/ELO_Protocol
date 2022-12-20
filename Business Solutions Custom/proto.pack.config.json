@@ -49,11 +49,13 @@
         "LIBELLE"
       ],
       "customerPath": [
+        "CLIENT_FL",
         "CLIENT",
         "TYPE_DOC",
         "DESIGN_SUPPL"
       ],
       "supplierPath": [
+        "FOURNISSEUR_FL",
         "FOURNISSEUR",
         "TYPE_DOC",
         "DESIGN_SUPPL"
