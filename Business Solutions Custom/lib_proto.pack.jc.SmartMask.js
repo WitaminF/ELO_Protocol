@@ -21,6 +21,8 @@ sol.define("SmartMask", {
         this.csContractFields = config.csContractFields
         this.customerPath = config.customerPath
         this.supplierPath = config.supplierPath
+        this.hrFields = config.hrFields
+        this.hrPath = config.hrPath
 
 
         // The local config is more powerful than global
@@ -84,6 +86,8 @@ sol.define("SmartMask", {
         let csContractFields = this.csContractFields
         let supplierPath = this.supplierPath
         let customerPath = this.customerPath
+        let hrFields = this.hrFields
+        let hrPath = this.hrPath
 
         switch (classement){
             case "" : {
@@ -157,11 +161,14 @@ sol.define("SmartMask", {
             }
             case "Ressources Humaines" : {
                 switch(docType) {
-                    case "Dossiers collaborateurs" : {
-                        //pushfield rhCollabFields
+                    case "Dossiers Personnels" : {
+                        pushField("hrFields")
+                        employee !== "" ? setPath(hrPath) : emptyPath()
+                        break
                     }
                     default :{
-                        //pushfield RH
+                        pushField("default")
+                        break
                     }
                 }
             }
@@ -191,6 +198,10 @@ sol.define("SmartMask", {
                 }
                 case "csInvoiceFields" : {
                     visibleFields = csInvoiceFields.slice(0)
+                    break
+                }
+                case "hrFields" : {
+                    visibleFields = hrFields.slice(0)
                     break
                 }
             }

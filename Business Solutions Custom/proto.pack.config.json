@@ -25,12 +25,14 @@
       "csDefaultFields": [
         "FOURNISSEUR",
         "CLIENT",
+        "ID_REF",
         "PROCESSUS",
         "NOTIFICATION"
       ],
       "csContractFields" : [
         "FOURNISSEUR",
         "CLIENT",
+        "ID_REF",
         "PROCESSUS",
         "NOTIFICATION",
         "MONTANT",
@@ -39,6 +41,7 @@
       "csInvoiceFields" : [
         "FOURNISSEUR",
         "CLIENT",
+        "ID_REF",
         "PROCESSUS",
         "NOTIFICATION",
         "MONTANT",
@@ -53,6 +56,16 @@
       "supplierPath": [
         "FOURNISSEUR",
         "TYPE_DOC",
+        "DESIGN_SUPPL"
+      ],
+      "hrFields" : [
+        "ID_REF",
+        "COLLABORATEUR"
+      ],
+      "hrPath" : [
+        "CLASSEMENT",
+        "TYPE_DOC",
+        "COLLABORATEUR",
         "DESIGN_SUPPL"
       ]
     },
