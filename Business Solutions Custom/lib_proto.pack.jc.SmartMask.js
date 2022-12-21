@@ -1,4 +1,26 @@
-﻿//@include lib_Class
+﻿
+/****************************************************************************************
+
+
+              ////////////  ////////////  ////////////  ////////////  //////////// TM
+             //        //  //        //  //        //       //       //        //
+            //        //  //        //  //        //       //       //        //
+           //        //  //        //  //        //       //       //        //
+          ////////////  ////////////  //        //       //       //        //
+         //            //      //    //        //       //       //        //
+        //            //       //   //        //       //       //        //
+       //            //        //  ////////////       //       //////////// SmartMask
+
+
+       > Propriété de Protocol SA, Rue de Sébeillon 9b, 1000 Lausanne
+
+       > Script développé par Florent Scheibler - 2022/2023
+       > Dépôt git du projet : https://github.com/WitaminF/ELO_Protocol
+       > Accès : scheiblerf@gmail.com
+
+ *****************************************************************************************/
+
+//@include lib_Class
 //@include lib_sol.common.ObjectUtils
 //@include lib_proto.pack.jc.PackFunction
 //@include lib_sol.common.SordUtils.js
@@ -9,7 +31,9 @@ sol.define("SmartMask", {
 
     //Class initialize event
     initialize(config) {
+        printDebugLog("SmartMask.initialize",this.debug)
 
+        //Valeur fichier config
         this.editableFields = config.editableFields
         this.visibleFields = config.visibleFields
         this.commonFields = config.commonFields
@@ -33,47 +57,77 @@ sol.define("SmartMask", {
         }
 
         this.process(indexDialog)
-
-
-        printDebugLog("BaseMaskScript.Debug" + this.debug,this.debug)
+        printDebugLog("SmartMask.Debug" + this.debug,this.debug)
     },
 
     onInit: function (indexDialog) {
         this.process(indexDialog)
-        printDebugLog("BaseMaskScript.onInit",this.debug)
+        printDebugLog("SmartMask.onInit",this.debug)
     },
 
     onFinish: function(indexDialog, id){
-
+        printDebugLog("SmartMask.onFinish",this.debug)
     },
 
     onNameExit: function (indexDialog) {
-
-        printDebugLog("BaseMaskScript.onNameExit",this.debug)
-
+        printDebugLog("SmartMask.onNameExit",this.debug)
     },
-    onDateExit: function (indexDialog) {
-        printDebugLog("BaseMaskScript.onDateExit",this.debug)
 
+    onDateExit: function (indexDialog) {
+        printDebugLog("SmartMask.onDateExit",this.debug)
     },
 
     onFieldExit: function (indexDialog, fieldName) {
         this.process(indexDialog)
-        printDebugLog("BaseMaskScript.onFieldExit",this.debug)
-
+        printDebugLog("SmartMask.onFieldExit",this.debug)
     },
 
     process(indexDialog) {
 
+        //Champs principaux, éditable, cahés à l'initialisation
+        let editableFields = this.editableFields
+
+        //Champs visible, vide à l'initialisation
+        let visibleFields = this.visibleFields
+
+        //Champs éditables pour les documents communs
+        let commonFields = this.commonFields
+
+        //Champs éditables pour les documents particuliers
+        //Fichiers clients et fournisseurs
+        //Par défaut
+        let csDefaultFields = this.csDefaultFields
+        //Facture
+        let csInvoiceFields = this.csInvoiceFields
+        //Contrat
+        let csContractFields = this.csContractFields
+        let hrFields = this.hrFields
+
+        //Champs utilisés pour les chemin de dépot/référence
+        //Documents communs
+        let commonPath = this.commonPath
+
+        //Documents clients et fournisseurs
+        let supplierPath = this.supplierPath
+        let customerPath = this.customerPath
+
+        //Documents RH pour un collaborateur
+        let hrPath = this.hrPath
+
+        //Attribution de valeur/variables
+        //Récupère la première lettre fournisseurs pour la mettre dans le champ FOURNISSEUR_FL
         let flFournisseur = getValue("FOURNISSEUR")
         setValue("FOURNISSEUR_FL", flFournisseur.charAt(0))
 
+        //Récupère la première lettre client pour la mettre dans le champs CLIENT_FL
         let flClient = getValue("CLIENT")
         setValue("CLIENT_FL", flClient.charAt(0))
 
+        //Attribution de variable pour le champ dépôt et référence
         let pathReceiver = "PDC_DEPOT"
         let refReceiver = "PDC_REF"
 
+        //Attribution de variable en fonction de la valeur d'un champ
         let classement = getValue("CLASSEMENT")
         let docType = getValue("TYPE_DOC")
         let supplier = getValue("FOURNISSEUR")
@@ -81,18 +135,9 @@ sol.define("SmartMask", {
         let employee = getValue("COLLABORATEUR")
         let accountNb = getValue("NO_COMPTE")
 
-        let editableFields = this.editableFields
-        let visibleFields = this.visibleFields
-        let commonFields = this.commonFields
-        let commonPath = this.commonPath
-        let csDefaultFields = this.csDefaultFields
-        let csInvoiceFields = this.csInvoiceFields
-        let csContractFields = this.csContractFields
-        let supplierPath = this.supplierPath
-        let customerPath = this.customerPath
-        let hrFields = this.hrFields
-        let hrPath = this.hrPath
 
+        //En fonction du type de document, détermine le classement
+        //ainsi que les champs visibles et éditables
         switch (classement){
             case "" : {
                 switch (docType) {
@@ -138,15 +183,15 @@ sol.define("SmartMask", {
             case "Clients & Fournisseurs" : {
                 switch(docType) {
                     case "Contrats" : {
-                        pushField("csContractFields")
+                        pushField("csContract")
                         break
                     }
                     case "Factures" :{
-                        pushField("csInvoiceFields")
+                        pushField("csInvoice")
                         break
                     }
                     default : {
-                        pushField("csDefaultFields")
+                        pushField("csDefault")
                     }
                 }
                 if (customer === "" && supplier ===""){
@@ -166,7 +211,7 @@ sol.define("SmartMask", {
             case "Ressources Humaines" : {
                 switch(docType) {
                     case "Dossiers Personnels" : {
-                        pushField("hrFields")
+                        pushField("hr")
                         employee !== "" ? setPath(hrPath) : emptyPath()
                         break
                     }
@@ -178,33 +223,41 @@ sol.define("SmartMask", {
             }
         }
 
-        //FONCTIONS
-
+        /**
+         * En fonction de l'état du masque, affiche ou cache certains champs
+         * @param state
+         */
         function pushField(state){
             switch (state){
                 case "init" : {
+                    printDebugLog("SmartMask.state.init",this.debug)
                     visibleFields.lenght = 0;
                     emptyPathAndRef()
                     break
                 }
                 case "default" : {
+                    printDebugLog("SmartMask.state.default",this.debug)
                     visibleFields = commonFields
                     setPath(commonPath)
                     break
                 }
-                case "csDefaultFields" : {
+                case "csDefault" : {
+                    printDebugLog("SmartMask.state.csDefaultFields",this.debug)
                     visibleFields = csDefaultFields.slice(0)
                     break
                 }
-                case "csContractFields" : {
+                case "csContract" : {
+                    printDebugLog("SmartMask.state.csContractFields",this.debug)
                     visibleFields = csContractFields.slice(0)
                     break
                 }
-                case "csInvoiceFields" : {
+                case "csInvoice" : {
+                    printDebugLog("SmartMask.state.csInvoiceFields",this.debug)
                     visibleFields = csInvoiceFields.slice(0)
                     break
                 }
-                case "hrFields" : {
+                case "hr" : {
+                    printDebugLog("SmartMask.state.hrFields",this.debug)
                     visibleFields = hrFields.slice(0)
                     break
                 }
@@ -212,6 +265,12 @@ sol.define("SmartMask", {
             showHide(visibleFields)
         }
 
+        /**
+         * Crée le chemin de dépot pour un document client/fournisseur
+         *
+         * @param list
+         * @param x
+         */
         function setCsPath(list, x){
             let path
             x === "Clients" ? path = ">Clients>" : path = ">Fournisseurs>"
@@ -224,6 +283,12 @@ sol.define("SmartMask", {
             setValue(pathReceiver, path)
         }
 
+        /**
+         * Crée le chemin de référence pour un document client/fournisseur
+         *
+         * @param list
+         * @param x
+         */
         function setCsRef(list, x){
             let refPath
             x === "Clients" ? refPath = "Clients>" : refPath = "Fournisseurs>"
@@ -235,6 +300,11 @@ sol.define("SmartMask", {
             })
             setValue(refReceiver, refPath)
         }
+
+        /**
+         * Crée le chemin de dépot pour un document
+         * @param list
+         */
         function setPath(list){
             path = ">"
             list.forEach(f =>{
@@ -246,6 +316,10 @@ sol.define("SmartMask", {
             setValue(pathReceiver, path)
         }
 
+        /**
+         * Crée le chemin de référence pour un document
+         * @param list
+         */
         function setRef(list){
             let refPath = ">"
             list.forEach(f =>{
@@ -258,39 +332,69 @@ sol.define("SmartMask", {
         }
 
 
+        /**
+         * Vide le champ dépot et référence
+         */
         function emptyPathAndRef(){
             emptyPath()
             emptyRef()
         }
 
+        /**
+         * Vide le champ dépot
+         */
         function emptyPath(){
             setValue(pathReceiver, "")
         }
 
+        /**
+         * Vide le chemin de référence
+         */
         function emptyRef(){
             setValue(refReceiver, "")
         }
 
+        /**
+         * En fonction des champs visible dans la liste VisibleFields
+         * Rend éditable ou non un champ
+         * @param list
+         */
         function showHide(list){
             editableFields.forEach(f=>{
                 (!list.includes(f)) ? hide(f) :show(f)
             })
         }
 
+        /**
+         * Récupère la valeur d'un champ
+         * @param field
+         * @returns {string}
+         */
         function getValue(field){
             return String(indexDialog.getObjKeyValue(field))
         }
 
+        /**
+         * Attribue une valeur a un champ
+         * @param field
+         * @param value
+         */
         function setValue(field, value){
             indexDialog.setObjKeyValue(field, value)
         }
 
-        //Rend visible une liste de champs
+        /**
+         * Rend un champ éditable
+         * @param field
+         */
         function show(field){
             indexDialog.getObjKey(field).setEnabled(true)
         }
 
-        //Rend invisible un champ et efface les valeurs
+        /**
+         * Rend un champ invisible et efface les valeurs
+         * @param field
+         */
         function hide(field){
             indexDialog.getObjKey(field).setEnabled(false)
             setValue(field, "")

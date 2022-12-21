@@ -78,8 +78,7 @@
         "DEPARTEMENT",
         "TYPE_DOC",
         "DESIGN_SUPPL",
-        "FOURNISSEUR",
-        "CLIENT",
+        "ID_REF",
         "INFO_COMPL"
       ]
     },
