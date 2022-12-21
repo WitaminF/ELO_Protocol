@@ -1,0 +1,163 @@
+﻿+Clients & Fournisseurs:
+	Bulletins de livraisons
+	Carnets d'heures
+	Commandes
+	Contrats
+	+Décomptes:
+		Décomptes
+		Décomptes d'heures
+	+Demandes / Correspondances:
+		Demandes d'interventions
+		Demandes d'offres
+		Demandes / échanges / retours
+		Réclamations
+		Demande d'informations
+		Correspondances
+	+Dossiers techniques:
+		Supports
+		Dossiers d'architecture technique
+		Rapports d'audits
+		Rapports d'interventions
+		Rapports de séances
+		Rapports de tests
+		Procès verbal de réceptions
+	+Factures:
+		Factures matériels
+		Factures frais généraux
+	Justificatifs paiements par cartes
+	Licences et carepacks
+	+Notes de crédits:
+		Notes de crédit validées
+		Notes de crédit supprimées
+	+Offres:
+		Offres reçues
+		Offres non retenues
+		Offres envoyées
+		Offres calculs de marges
+		Dossiers d'appels d'offres
+	+Prospects:
+		Correspondances prospects
+	Rapports Proactifs
+	Réceptions de marchandises
+	Registres du commerce
++Gouvernance:
+	Budgets
+	Communications
+	Conseils d'administration
+	Comités de départements
+	Comités de direction
+	Investissements
+	Objectifs équipes
+	Organigrammes
+	Recherches et développements
+	Réflexions stratégiques
+	Roadmaps
+	Stratégies
+	Suivis de projet
+	Tableaux de bords
++Admin:
+	Assurances
+	Décomptes Solutime
+	Gérances locaux
+	Informations générales
+	Litiges et avocats
+	Plans des locaux
+	Procédures Admin
+	Procurations
+	Recommandations légale
+	+Comptablilité:
+		Pièce comtpables
+	+Factures débiteurs:
+		Factures frais généraux
+		Factures matériels
++Marketing:
+	Brochures et flyers Protocol
+	Campagnes mailing
+	Campagnes marketing
+	Cartes de visite
+	Cartes de vœux
+	+Évènements:
+		Invitations événements
+		Inscriptions évènements
+		Organisations événements
+		Participations financières
+	Logos Protocol
+	Plaquettes Protocol
+	Présentations PowerPoint Protocol
+	Publications journaux
+	Sponsorings
+	Signatures email
++Ventes:
+	CRM clients stratégiques
+	Listes d'adresses
+	+Produits Datacenter:
+		Templates Contrats Datacenter
+		Flyers et documentations Datacenter
+		Prix et promotions Datacenter
+	+Produits ELO:
+		Templates Contrats ELO
+		Outils scripts et codes sources
+		Flyers et documentation ELO
+		Prix et promotions ELO
+		Supports de formations et marches a suivre ELO
+		Supports de formations ELO Communes
+		Supports de formations ELO entreprises
+	+Produits Infrastructure:
+		Templates Contrats Infrastructure
+		Flyers et documentation Infrastructure
+		Prix et promotions Infrastructure
+	+Produits Téléphonie:
+		Templates Contrats Téléphonie
+		Flyers et documentation Téléphonie
+		Prix et promotions Téléphonie
+	Remerciements
++Formations:
+	Formations externes
+	Formations internes
+	Inscriptions formations
++Modèles et Templates:
+	Templates administration générale
+	Templates documents collaborateurs
+	Templates documents et lettres
+	Templates documents techniques
+	Templates documents projets
+	Templates offres
+	Templates RH
+	Templates secret et confidentialité
++Procédures Interne:
+	Procédures Datacenter
+	Procédures ELO
+	Procédures infrastructure
+	Procédures générales
+	Procédures supports
++Techniques Interne:
+	Confidentiels
+	+Dossier technique Datacenter:
+		Documents officiels Datacenter
+		Documents technique Datacenter
+		Licences Datacenter
+		Listes utilisateurs et droits
+		Schémas Datacenter
+	+Dossier technique Démo:
+		Documents technique Démo interne
+		Schémas Démo interne
+	+Dossier technique infra interne:
+		Documents officiels infrastructure interne
+		Documents technique infrastructure interne
+		Licences infrastructure interne
+		Schémas infrastructure interne
++Ressources Humaines:
+	Assurances sociales
+	Attestations RH
+	Certifications
+	+Dossiers Personnels:
+		Curriculum Vitae
+		Contrats de travail
+		Assurances sociales
+		Attestations
+		Décomptes heures et vacances
+		Certifications
+		Notes de frais
+		Correspondance
+	Formulaires RH
+	Véhicules entreprise

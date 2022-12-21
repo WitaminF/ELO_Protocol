@@ -1,0 +1,245 @@
+A
+	Acer
+	Acronis
+	Administration cantonal des Impôts
+	Administration Fédérale des Contributions AFC
+	Adobe
+	AFC
+	All in One
+	Alltron AG
+	Also Schweiz AG
+	Anixter
+	AOC
+	Arivato
+	ARP Datacon AG
+	Assmann-IT Solutions AG
+	Astaro
+	Asus
+	AVE CRM
+	Axa Winterthur Assurances SA
+	Axis Data Components
+	Axius
+B
+	Ballet Béjart
+	Banque Cantonale Vaudoise BCV
+	Barby clés
+	Bechtle
+	Bernexpo AG
+	BP Card Service
+	Brack
+	Brother
+	BW Distribution AG
+C
+	Cablecom
+	Caisse AVS de la Fédération Patronale Vaudoise
+	Camion Transport AG
+	Canon
+	Cave Gonzalez SA
+	Centre General Guisan
+	Centre patronal
+	CFF
+	Chromos
+	Cleanfix
+	Clio
+	Conrad Electronic AG
+	Copex
+	Cornercard
+	Cortex
+	CPP Computer Präsentations Partner AG
+	Cresus
+D
+	Damax (Toshiba)
+	Dative AG
+	Dell
+	Delticom
+	Département des finances
+	DHL
+	Dicom (Kofax)
+	DidWeDo Sàrl
+	Digitec.ch
+	Distrelec SA
+	Distri-Net  Axel
+	D-Link
+	DM
+	DMS
+	Docuteam
+E
+	Easy Sana Assurance Maladie SA
+	Easynet
+	ECA
+	ecm4you
+	Ecofina
+	ECS
+	Eden Springs Switzerland SA
+	Elo Digital Office CH AG
+	EPSITEC
+	ESAG
+	Esoft
+	E-tec
+	Exel
+F
+	Factum Copex
+	Fedex
+	Fidalp
+	Finatrade
+	Fondation Général Henri Guisan (FGHG)
+	Formalease
+	Fortinet
+	Fricopy  bureautique
+	Fujitsu
+G
+	Galliker transport
+	Ganesh Consulting Sàrl
+	Garage Bernard SA
+	Garage de la Navigation
+	Garage de la Sorge
+	Garage Wanzenried
+	GE Capital
+	Green.ch
+H
+	HP
+I
+	IBM Lenovo
+	ICT Journal
+	Infomanage - Kaspersky
+	Informia
+	Ing. Dipl. Fust SA
+	Ingram Micro GmbH
+	Interway
+	Iomega
+	IPWorldcom
+	IRL Imprimeries Réunies Lausanne SA
+	IRL Plus SA
+	ISEIG
+	Itmedia
+J
+	Jazz Festival
+	JobUP sàrl
+K
+	Kaspersky
+	Kindermann
+	Kingston
+	Knurr
+	Kofax
+	Konica Minolta
+	Krios
+	Kyocera
+L
+	La Bâloise Assurance
+	La Poste Suisse
+	Lacie
+	Linard
+	Lindy
+	Lindy-Elektronic AG
+	LM Réalisations (F)
+	LTV Pages Jaunes SA
+	LUCOFEU
+M
+	McAfee
+	Medialive SA
+	Memoire Vive
+	Microsoft
+	Microspot.ch
+	Migros
+	Minkels
+	Mischler-Consulting
+	MLS Communications
+	Mojip Auto Sàrl
+	MU Télématique
+	MUT
+	My Charitydesk
+	MyProjectorLamps
+N
+	Nexan Informatique
+	NSI Autostore
+	Nuance Power PDF
+O
+	Ofatec
+	Office des poursuites de Lausanne
+	Office d'impôts des Personnes Morales
+	Office World AG
+	Oki
+	Opal Associates SA
+	Optive
+	Orange Communications SA
+P
+	pa+ronen.ch
+	Philip's Excursion
+	postfinance
+	Primalco
+	Prodatis
+	Proditec SA
+	Profot
+	Prolitteris
+	PromoEdition
+	Protea Tech
+	Protection juridique SA
+	PSP Management SA
+	PSS
+	PV Computing
+Q
+	QLC Vevey
+	Qualiboo
+	Quicksite
+R
+	Realstone SA
+	Restaurant du port de Pully
+	Rêves en stock
+	RMES
+	Romande Energie
+	Rotronic - Secomp AG
+S
+	Sage Suisse SA
+	SAGEMCOM
+	Samsung
+	Schnepp
+	SCS Computer Systems AG
+	SecurityOnlineShop
+	Selecta AG
+	Service des automobiles et de la navigation
+	Service Printers O. Delechat
+	Services industriels
+	Sesam
+	SienerSoft AG
+	SKIDATA
+	Soft Gestion
+	SoftwareOne
+	Somatra SA
+	Staempfli AG
+	Starcon GmbH
+	Steg
+	Studerus AG
+	Studio Medina
+	Supplies
+	Swisscom Fixnet SA
+	SwissMajestic Hôtel
+	Swissmedia
+	Swissparts
+	Switch
+	Symantec
+	Syselcom Mutuelle Informatique SA
+T
+	TCPOS
+	TeamWhere
+	Tech Data (Suisse) Sàrl
+	TNT
+	TopD
+	Toshiba Tec Switzerland AG
+	Transfibres
+	TüvSüd Akademie
+U
+	UBS
+	Upc cablecom Sàrl
+	UPS
+	USB Factory
+V
+	Veeam
+	Vélocité Sàrl
+	Verizon
+	VMWARE
+	VTX
+W
+	Wincasa SA
+X
+Y
+Z
