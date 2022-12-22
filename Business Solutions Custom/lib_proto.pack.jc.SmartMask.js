@@ -9,7 +9,7 @@
           ////////////  ////////////  //        //       //       //        //
          //            //      //    //        //       //       //        //
         //            //       //   //        //       //       //        //
-       //            //        //  ////////////       //       //////////// SmartMask
+       //            //        //  ////////////       //       //////////// #SmartMask
 
 
        > Propriété de Protocol SA, Rue de Sébeillon 9b, 1000 Lausanne
@@ -139,6 +139,14 @@ sol.define("SmartMask", {
         //En fonction du type de document, détermine le classement
         //ainsi que les champs visibles et éditables
         switch (classement){
+            case "Altron" :{
+                setValue("CLASSEMENT", "Clients & Fournisseurs")
+                setValue("TYPE_DOC", "Factures")
+                setValue("DESIGN_SUPPL", "Factures frais généraux")
+                setValue("FOURNISSEUR", "Alltron")
+                this.process(indexDialog)
+                break
+            }
             case "" : {
                 switch (docType) {
                     case "" : {
