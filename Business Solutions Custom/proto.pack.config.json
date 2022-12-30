@@ -4,6 +4,8 @@
       "editableFields" : [
         "FOURNISSEUR",
         "CLIENT",
+        "NO_BULLETIN",
+        "NO_RECEPTION",
         "ID_REF",
         "COLLABORATEUR",
         "MONTANT",
@@ -41,6 +43,8 @@
       "csInvoiceFields" : [
         "FOURNISSEUR",
         "CLIENT",
+        "NO_BULLETIN",
+        "NO_RECEPTION",
         "ID_REF",
         "PROCESSUS",
         "NOTIFICATION",
@@ -76,9 +80,10 @@
       "field2" : "DESIGN_SUPPL",
       "fields" : [
         "DEPARTEMENT",
+        "CLIENT",
+        "FOURNISSEUR",
         "TYPE_DOC",
         "DESIGN_SUPPL",
-        "ID_REF",
         "INFO_COMPL"
       ]
     },

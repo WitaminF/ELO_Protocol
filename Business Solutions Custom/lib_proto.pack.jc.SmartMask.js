@@ -139,11 +139,21 @@ sol.define("SmartMask", {
         //En fonction du type de document, détermine le classement
         //ainsi que les champs visibles et éditables
         switch (classement){
-            case "Altron" :{
+            case "Factures FG" :{
                 setValue("CLASSEMENT", "Clients & Fournisseurs")
                 setValue("TYPE_DOC", "Factures")
                 setValue("DESIGN_SUPPL", "Factures frais généraux")
-                setValue("FOURNISSEUR", "Alltron")
+                setValue("DEPARTEMENT", "INFRA")
+                setValue("PROCESSUS", "Facture")
+                this.process(indexDialog)
+                break
+            }
+            case "Factures A" :{
+                setValue("CLASSEMENT", "Clients & Fournisseurs")
+                setValue("TYPE_DOC", "Factures")
+                setValue("DESIGN_SUPPL", "Factures achats")
+                setValue("DEPARTEMENT", "INFRA")
+                setValue("PROCESSUS", "Facture")
                 this.process(indexDialog)
                 break
             }
