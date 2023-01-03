@@ -40,6 +40,12 @@
         "MONTANT",
         "TYPE_CONTRAT"
       ],
+      "csProactifFields": [
+        "CLIENT",
+        "ID_REF",
+        "PROCESSUS",
+        "NOTIFICATION"
+      ],
       "csInvoiceFields" : [
         "FOURNISSEUR",
         "CLIENT",

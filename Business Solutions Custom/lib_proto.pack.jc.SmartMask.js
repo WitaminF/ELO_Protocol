@@ -41,6 +41,7 @@ sol.define("SmartMask", {
         this.csDefaultFields = config.csDefaultFields
         this.csInvoiceFields = config.csInvoiceFields
         this.csContractFields = config.csContractFields
+        this.csProactifFields = config.csProactifFields
         this.customerPath = config.customerPath
         this.supplierPath = config.supplierPath
         this.hrFields = config.hrFields
@@ -101,6 +102,8 @@ sol.define("SmartMask", {
         let csInvoiceFields = this.csInvoiceFields
         //Contrat
         let csContractFields = this.csContractFields
+        //Proactif
+        let csProactifFields = this.csProactifFields
         let hrFields = this.hrFields
 
         //Champs utilisés pour les chemin de dépot/référence
@@ -119,7 +122,7 @@ sol.define("SmartMask", {
         let flFournisseur = getValue("FOURNISSEUR")
         setValue("FOURNISSEUR_FL", flFournisseur.charAt(0))
 
-        //Récupère la première lettre client pour la mettre dans le champs CLIENT_FL
+        //Récupère la première lettre client pour la mettre dans le champ CLIENT_FL
         let flClient = getValue("CLIENT")
         setValue("CLIENT_FL", flClient.charAt(0))
 
@@ -154,6 +157,22 @@ sol.define("SmartMask", {
                 setValue("DESIGN_SUPPL", "Factures achats")
                 setValue("DEPARTEMENT", "INFRA")
                 setValue("PROCESSUS", "Facture")
+                this.process(indexDialog)
+                break
+            }
+            case "Proactifs avec intervention" : {
+                setValue("CLASSEMENT", "Clients & Fournisseurs")
+                setValue("TYPE_DOC", "Rapports proactifs")
+                setValue("PROCESSUS", "Proactif")
+                setValue("PROACTIF", "AVEC")
+                this.process(indexDialog)
+                break
+            }
+            case "Proactifs sans intervention" : {
+                setValue("CLASSEMENT", "Clients & Fournisseurs")
+                setValue("TYPE_DOC", "Rapports proactifs")
+                setValue("PROCESSUS", "Proactif")
+                setValue("PROACTIF", "SANS")
                 this.process(indexDialog)
                 break
             }
@@ -200,6 +219,10 @@ sol.define("SmartMask", {
             }
             case "Clients & Fournisseurs" : {
                 switch(docType) {
+                    case "Rapports proactifs" :{
+                        pushField("csProactif")
+                        break
+                    }
                     case "Contrats" : {
                         pushField("csContract")
                         break
@@ -272,6 +295,10 @@ sol.define("SmartMask", {
                 case "csInvoice" : {
                     printDebugLog("SmartMask.state.csInvoiceFields",this.debug)
                     visibleFields = csInvoiceFields.slice(0)
+                    break
+                }
+                case "csProactif" : {
+                    visibleFields = csProactifFields.slice(0)
                     break
                 }
                 case "hr" : {
