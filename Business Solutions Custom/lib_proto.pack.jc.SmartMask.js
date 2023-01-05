@@ -48,10 +48,6 @@ sol.define("SmartMask", {
         this.hrFields = config.hrFields
         this.hrPath = config.hrPath
 
-        //this.year = new Date().getFullYear()
-        //this.month = new Date().getMonth()
-
-
         // The local config is more powerful than global
         if (config.shouldWriteLogs === false) {
             this.debug = false
@@ -74,7 +70,6 @@ sol.define("SmartMask", {
         if (month < 10) {
             month = "0" + month
         }
-
         indexDialog.setObjKeyValue("MONTH", month)
         this.process(indexDialog)
         printDebugLog("SmartMask.onInit",this.debug)
@@ -220,15 +215,7 @@ sol.define("SmartMask", {
                 pushField("default")
                 break
             }
-            case "Formations" : {
-                pushField("default")
-                break
-            }
-            case "Modèles et Templates" : {
-                pushField("default")
-                break
-            }
-            case "Procédures Interne" : {
+            case "Protocol Interne" : {
                 pushField("default")
                 break
             }

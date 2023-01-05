@@ -94,6 +94,7 @@
       "field2" : "DESIGN_SUPPL",
       "fields" : [
         "DEPARTEMENT",
+        "COLLABORATEUR",
         "CLIENT",
         "FOURNISSEUR",
         "TYPE_DOC",
