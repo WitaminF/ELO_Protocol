@@ -42,10 +42,14 @@ sol.define("SmartMask", {
         this.csInvoiceFields = config.csInvoiceFields
         this.csContractFields = config.csContractFields
         this.csProactifFields = config.csProactifFields
+        this.proactifPath = config.proactifPath
         this.customerPath = config.customerPath
         this.supplierPath = config.supplierPath
         this.hrFields = config.hrFields
         this.hrPath = config.hrPath
+
+        //this.year = new Date().getFullYear()
+        //this.month = new Date().getMonth()
 
 
         // The local config is more powerful than global
@@ -62,6 +66,16 @@ sol.define("SmartMask", {
     },
 
     onInit: function (indexDialog) {
+        let year = new Date().getFullYear()
+        indexDialog.setObjKeyValue("YEAR", year)
+
+        let month = new Date().getMonth() + 1
+
+        if (month < 10) {
+            month = "0" + month
+        }
+
+        indexDialog.setObjKeyValue("MONTH", month)
         this.process(indexDialog)
         printDebugLog("SmartMask.onInit",this.debug)
     },
@@ -104,6 +118,7 @@ sol.define("SmartMask", {
         let csContractFields = this.csContractFields
         //Proactif
         let csProactifFields = this.csProactifFields
+
         let hrFields = this.hrFields
 
         //Champs utilisés pour les chemin de dépot/référence
@@ -113,6 +128,7 @@ sol.define("SmartMask", {
         //Documents clients et fournisseurs
         let supplierPath = this.supplierPath
         let customerPath = this.customerPath
+        let proactifPath = this.proactifPath
 
         //Documents RH pour un collaborateur
         let hrPath = this.hrPath
@@ -142,6 +158,15 @@ sol.define("SmartMask", {
         //En fonction du type de document, détermine le classement
         //ainsi que les champs visibles et éditables
         switch (classement){
+            case "" : {
+                switch (docType) {
+                    case "" : {
+                        pushField("init")
+                        break
+                    }
+                }
+                break
+            }
             case "Factures FG" :{
                 setValue("CLASSEMENT", "Clients & Fournisseurs")
                 setValue("TYPE_DOC", "Factures")
@@ -176,13 +201,11 @@ sol.define("SmartMask", {
                 this.process(indexDialog)
                 break
             }
-            case "" : {
-                switch (docType) {
-                    case "" : {
-                        pushField("init")
-                        break
-                    }
-                }
+            case "Contrats" : {
+                setValue("CLASSEMENT", "Clients & Fournisseurs")
+                setValue("TYPE_DOC", "Contrats")
+                setValue("PROCESSUS", "Contrat")
+                this.process(indexDialog)
                 break
             }
             case "Marketing" : {
@@ -235,17 +258,22 @@ sol.define("SmartMask", {
                         pushField("csDefault")
                     }
                 }
-                if (customer === "" && supplier ===""){
-                    emptyPathAndRef()
-                }else if(customer !== "" && supplier ===""){
-                    setCsPath(customerPath, "Clients")
-                    emptyRef()
-                }else if (customer === "" && supplier !== ""){
-                    setCsPath(supplierPath, "Fournisseurs")
-                    emptyRef()
-                }else {
-                    setCsPath(customerPath, "Clients")
-                    setCsRef(supplierPath, "Fournisseurs")
+                if (docType === "Rapports proactifs" && customer !==""){
+                    setCsPath(proactifPath, "Clients")
+                }
+                else {
+                    if (customer === "" && supplier ===""){
+                        emptyPathAndRef()
+                    }else if(customer !== "" && supplier ===""){
+                        setCsPath(customerPath, "Clients")
+                        emptyRef()
+                    }else if (customer === "" && supplier !== ""){
+                        setCsPath(supplierPath, "Fournisseurs")
+                        emptyRef()
+                    }else {
+                        setCsPath(customerPath, "Clients")
+                        setCsRef(supplierPath, "Fournisseurs")
+                    }
                 }
                 break
             }

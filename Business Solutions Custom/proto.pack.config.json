@@ -23,7 +23,8 @@
       "commonPath" : [
         "CLASSEMENT",
         "TYPE_DOC",
-        "DESIGN_SUPPL"],
+        "DESIGN_SUPPL"
+      ],
       "csDefaultFields": [
         "FOURNISSEUR",
         "CLIENT",
@@ -45,6 +46,13 @@
         "ID_REF",
         "PROCESSUS",
         "NOTIFICATION"
+      ],
+      "proactifPath": [
+        "CLIENT_FL",
+        "CLIENT",
+        "TYPE_DOC",
+        "YEAR",
+        "MONTH"
       ],
       "csInvoiceFields" : [
         "FOURNISSEUR",
