@@ -162,43 +162,43 @@ sol.define("SmartMask", {
                 }
                 break
             }
-            case "Factures FG" :{
-                setValue("CLASSEMENT", "Clients & Fournisseurs")
-                setValue("TYPE_DOC", "Factures")
-                setValue("DESIGN_SUPPL", "Factures frais généraux")
+            case "Facture FG" :{
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Facture")
+                setValue("DESIGN_SUPPL", "Facture frais généraux")
                 setValue("DEPARTEMENT", "INFRA")
                 setValue("PROCESSUS", "Facture")
                 this.process(indexDialog)
                 break
             }
-            case "Factures A" :{
-                setValue("CLASSEMENT", "Clients & Fournisseurs")
-                setValue("TYPE_DOC", "Factures")
-                setValue("DESIGN_SUPPL", "Factures achats")
+            case "Facture A" :{
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Facture")
+                setValue("DESIGN_SUPPL", "Facture achat")
                 setValue("DEPARTEMENT", "INFRA")
                 setValue("PROCESSUS", "Facture")
                 this.process(indexDialog)
                 break
             }
-            case "Proactifs avec intervention" : {
-                setValue("CLASSEMENT", "Clients & Fournisseurs")
-                setValue("TYPE_DOC", "Rapports proactifs")
+            case "Proactif avec intervention" : {
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Rapport proactif")
                 setValue("PROCESSUS", "Proactif")
                 setValue("PROACTIF", "AVEC")
                 this.process(indexDialog)
                 break
             }
-            case "Proactifs sans intervention" : {
-                setValue("CLASSEMENT", "Clients & Fournisseurs")
-                setValue("TYPE_DOC", "Rapports proactifs")
+            case "Proactif sans intervention" : {
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Rapport proactif")
                 setValue("PROCESSUS", "Proactif")
                 setValue("PROACTIF", "SANS")
                 this.process(indexDialog)
                 break
             }
-            case "Contrats" : {
-                setValue("CLASSEMENT", "Clients & Fournisseurs")
-                setValue("TYPE_DOC", "Contrats")
+            case "Contrat" : {
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Contrat")
                 setValue("PROCESSUS", "Contrat")
                 this.process(indexDialog)
                 break
@@ -211,7 +211,7 @@ sol.define("SmartMask", {
                 pushField("default")
                 break
             }
-            case "Ventes" : {
+            case "Vente" : {
                 pushField("default")
                 break
             }
@@ -219,7 +219,7 @@ sol.define("SmartMask", {
                 pushField("default")
                 break
             }
-            case "Techniques Interne" : {
+            case "Technique Interne" : {
                 pushField("default")
                 break
             }
@@ -227,17 +227,17 @@ sol.define("SmartMask", {
                 pushField("default")
                 break
             }
-            case "Clients & Fournisseurs" : {
+            case "Client & Fournisseur" : {
                 switch(docType) {
-                    case "Rapports proactifs" :{
+                    case "Rapport proactif" :{
                         pushField("csProactif")
                         break
                     }
-                    case "Contrats" : {
+                    case "Contrat" : {
                         pushField("csContract")
                         break
                     }
-                    case "Factures" :{
+                    case "Facture" :{
                         pushField("csInvoice")
                         break
                     }
@@ -245,28 +245,28 @@ sol.define("SmartMask", {
                         pushField("csDefault")
                     }
                 }
-                if (docType === "Rapports proactifs" && customer !==""){
-                    setCsPath(proactifPath, "Clients")
+                if (docType === "Rapport proactif" && customer !==""){
+                    setCsPath(proactifPath, "Client")
                 }
                 else {
                     if (customer === "" && supplier ===""){
                         emptyPathAndRef()
                     }else if(customer !== "" && supplier ===""){
-                        setCsPath(customerPath, "Clients")
+                        setCsPath(customerPath, "Client")
                         emptyRef()
                     }else if (customer === "" && supplier !== ""){
-                        setCsPath(supplierPath, "Fournisseurs")
+                        setCsPath(supplierPath, "Fournisseur")
                         emptyRef()
                     }else {
-                        setCsPath(customerPath, "Clients")
-                        setCsRef(supplierPath, "Fournisseurs")
+                        setCsPath(customerPath, "Client")
+                        setCsRef(supplierPath, "Fournisseur")
                     }
                 }
                 break
             }
-            case "Ressources Humaines" : {
+            case "Ressource Humaine" : {
                 switch(docType) {
-                    case "Dossiers Personnels" : {
+                    case "Dossier Personnel" : {
                         pushField("hr")
                         employee !== "" ? setPath(hrPath) : emptyPath()
                         break
@@ -333,7 +333,7 @@ sol.define("SmartMask", {
          */
         function setCsPath(list, x){
             let path
-            x === "Clients" ? path = ">Clients>" : path = ">Fournisseurs>"
+            x === "Client" ? path = ">Client>" : path = ">Fournisseur>"
             list.forEach(f =>{
                 let value = getValue(f)
                 if (value !== ""){
@@ -351,7 +351,7 @@ sol.define("SmartMask", {
          */
         function setCsRef(list, x){
             let refPath
-            x === "Clients" ? refPath = "Clients>" : refPath = "Fournisseurs>"
+            x === "Client" ? refPath = "Client>" : refPath = "Fournisseur>"
             list.forEach(f =>{
                 let value = getValue(f)
                 if (value !== ""){
