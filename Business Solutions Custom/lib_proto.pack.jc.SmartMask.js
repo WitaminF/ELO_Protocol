@@ -183,6 +183,7 @@ sol.define("SmartMask", {
             case "Proactif avec intervention" : {
                 setValue("CLASSEMENT", "Client & Fournisseur")
                 setValue("TYPE_DOC", "Rapport proactif")
+                setValue("DEPARTEMENT", "INFRA")
                 setValue("PROCESSUS", "Proactif")
                 setValue("PROACTIF", "AVEC")
                 this.process(indexDialog)
@@ -191,6 +192,7 @@ sol.define("SmartMask", {
             case "Proactif sans intervention" : {
                 setValue("CLASSEMENT", "Client & Fournisseur")
                 setValue("TYPE_DOC", "Rapport proactif")
+                setValue("DEPARTEMENT", "INFRA")
                 setValue("PROCESSUS", "Proactif")
                 setValue("PROACTIF", "SANS")
                 this.process(indexDialog)
@@ -245,8 +247,12 @@ sol.define("SmartMask", {
                         pushField("csDefault")
                     }
                 }
-                if (docType === "Rapport proactif" && customer !==""){
+                if (docType === "Rapport proactif"){
+                    if (customer !=="")
                     setCsPath(proactifPath, "Client")
+                    else {
+                        emptyPath()
+                    }
                 }
                 else {
                     if (customer === "" && supplier ===""){
