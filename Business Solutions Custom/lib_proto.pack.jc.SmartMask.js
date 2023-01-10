@@ -162,6 +162,21 @@ sol.define("SmartMask", {
                 }
                 break
             }
+            case "Carnet d'heures" :{
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Carnet d'heures")
+                setValue("DEPARTEMENT", "INFRA")
+                this.process(indexDialog)
+                break
+            }
+            case "Configuration et tarif Hosting" :{
+                setValue("CLASSEMENT", "Client & Fournisseur")
+                setValue("TYPE_DOC", "Contrat")
+                setValue("DEPARTEMENT", "INFRA")
+                setValue("INFO_COMPL", "Configuration et tarif Hosting")
+                this.process(indexDialog)
+                break
+            }
             case "Facture FG" :{
                 setValue("CLASSEMENT", "Client & Fournisseur")
                 setValue("TYPE_DOC", "Facture")
