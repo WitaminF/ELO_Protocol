@@ -95,10 +95,11 @@
       "fields" : [
         "DEPARTEMENT",
         "COLLABORATEUR",
-        "CLIENT",
         "FOURNISSEUR",
+        "CLIENT",
         "TYPE_DOC",
         "DESIGN_SUPPL",
+        "TYPE_CONTRAT",
         "INFO_COMPL"
       ]
     },
