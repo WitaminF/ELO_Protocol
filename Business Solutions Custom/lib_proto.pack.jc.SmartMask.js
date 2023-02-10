@@ -42,11 +42,13 @@ sol.define("SmartMask", {
         this.csInvoiceFields = config.csInvoiceFields
         this.csContractFields = config.csContractFields
         this.csProactifFields = config.csProactifFields
+        this.pcComptableFields = config.pcComptableFields
         this.proactifPath = config.proactifPath
         this.customerPath = config.customerPath
         this.supplierPath = config.supplierPath
         this.hrFields = config.hrFields
         this.hrPath = config.hrPath
+
 
         // The local config is more powerful than global
         if (config.shouldWriteLogs === false) {
@@ -113,6 +115,8 @@ sol.define("SmartMask", {
         let csContractFields = this.csContractFields
         //Proactif
         let csProactifFields = this.csProactifFields
+        //Pièces comptables
+        let pcComptableFields = this.pcComptableFields
 
         let hrFields = this.hrFields
 
@@ -144,6 +148,7 @@ sol.define("SmartMask", {
         //Attribution de variable en fonction de la valeur d'un champ
         let classement = getValue("CLASSEMENT")
         let docType = getValue("TYPE_DOC")
+        let designSuppl = getValue("DESIGN_SUPPL")
         let supplier = getValue("FOURNISSEUR")
         let customer = getValue("CLIENT")
         let employee = getValue("COLLABORATEUR")
@@ -241,7 +246,16 @@ sol.define("SmartMask", {
                 break
             }
             case "Admin" : {
-                pushField("default")
+                switch(designSuppl){
+                    case"Pièce comptable":{
+                        pushField("pcComptable")
+                        break
+                    }
+                    default : {
+                        pushField("default")
+                        break
+                    }
+                }
                 break
             }
             case "Client & Fournisseur" : {
@@ -341,6 +355,9 @@ sol.define("SmartMask", {
                     printDebugLog("SmartMask.state.hrFields",this.debug)
                     visibleFields = hrFields.slice(0)
                     break
+                }
+                case "pcComptable":{
+                    visibleFields = pcComptableFields.slice(0)
                 }
             }
             showHide(visibleFields)

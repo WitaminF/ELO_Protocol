@@ -77,6 +77,7 @@
         "FOURNISSEUR",
         "TYPE_DOC",
         "DESIGN_SUPPL"
+
       ],
       "hrFields" : [
         "ID_REF",
@@ -87,6 +88,9 @@
         "TYPE_DOC",
         "COLLABORATEUR",
         "DESIGN_SUPPL"
+      ],
+      "pcComptableFields": [
+        "ID_REF"
       ]
     },
     "AutoName" : {

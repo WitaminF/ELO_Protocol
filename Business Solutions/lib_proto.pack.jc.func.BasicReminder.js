@@ -140,7 +140,7 @@ sol.define("BasicReminder", {
 		// Check if value exists
         if (fieldText != "") { 
             var parts = String(fieldText).split(this.splitter) // Split the value on the parts using "split" from the config
-            var title = "Notif. " + indexDialogAdapter.getName() + ": " + parts.shift() // Generating the notification's title
+            var title = parts.shift() // Generating the notification's title
             
 			// If targets more 0 create and send the notification
 			if (parts.length > 0) {
