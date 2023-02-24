@@ -89,7 +89,9 @@
         "COLLABORATEUR",
         "DESIGN_SUPPL"
       ],
-      "pcComptableFields": [
+      "adminFields": [
+        "CLIENT",
+        "FOURNISSEUR",
         "ID_REF"
       ]
     },

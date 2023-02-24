@@ -42,7 +42,7 @@ sol.define("SmartMask", {
         this.csInvoiceFields = config.csInvoiceFields
         this.csContractFields = config.csContractFields
         this.csProactifFields = config.csProactifFields
-        this.pcComptableFields = config.pcComptableFields
+        this.adminFields = config.adminFields
         this.proactifPath = config.proactifPath
         this.customerPath = config.customerPath
         this.supplierPath = config.supplierPath
@@ -116,7 +116,7 @@ sol.define("SmartMask", {
         //Proactif
         let csProactifFields = this.csProactifFields
         //Pièces comptables
-        let pcComptableFields = this.pcComptableFields
+        let adminFields = this.adminFields
 
         let hrFields = this.hrFields
 
@@ -246,16 +246,7 @@ sol.define("SmartMask", {
                 break
             }
             case "Admin" : {
-                switch(designSuppl){
-                    case"Pièce comptable":{
-                        pushField("pcComptable")
-                        break
-                    }
-                    default : {
-                        pushField("default")
-                        break
-                    }
-                }
+                pushField("adminFields")
                 break
             }
             case "Client & Fournisseur" : {
@@ -356,8 +347,9 @@ sol.define("SmartMask", {
                     visibleFields = hrFields.slice(0)
                     break
                 }
-                case "pcComptable":{
-                    visibleFields = pcComptableFields.slice(0)
+                case "adminFields":{
+                    visibleFields = adminFields.slice(0)
+                    setPath(commonPath)
                 }
             }
             showHide(visibleFields)
